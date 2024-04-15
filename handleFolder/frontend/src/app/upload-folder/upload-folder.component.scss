@@ -1,0 +1,291 @@
+.container {
+    width: 100%;
+    min-height: 500px;
+
+
+    .row {
+        width: 90%;
+        min-height: 500px;
+        margin: auto;
+
+        .rowOne {
+            width: 100%;
+            min-height: 120px;
+            background: rgb(153, 153, 153);
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            border-top-right-radius: 10px;
+            border-top-left-radius: 10px;
+
+
+            .inputpathdiv {
+                width: 50%;
+                height: inherit;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-start;
+
+
+                label {
+                    color: white;
+                    font-size: 18px;
+                    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                    margin-left: 10px;
+                    margin-bottom: 4px;
+                }
+
+                .inpSapn {
+                    width: 100%;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: flex-start;
+                    align-items: center;
+
+                    input {
+                        width: 50%;
+                        height: 30px;
+                        border: none;
+                        border-radius: 10px;
+                        margin-left: 10px;
+                        padding: 0 4px 0 10px;
+                        outline: none;
+                        margin-bottom: 4px;
+                    }
+
+                    span {
+                        color: rgb(194, 43, 43);
+                        margin-left: 5px;
+                        font-size: 18px;
+                        font-weight: bold;
+                        animation: blinkAnimat 1s linear infinite;
+                    }
+
+                    @keyframes blinkAnimat {
+                        0% {
+                            opacity: 0;
+                        }
+
+                        100% {
+                            opacity: 1;
+                        }
+                    }
+                }
+
+
+
+                button {
+                    width: 100px;
+                    height: 30px;
+                    border: none;
+                    margin-left: 10px;
+                    border-radius: 15px;
+                    background: rgb(208, 235, 154);
+                    cursor: pointer;
+                }
+            }
+
+            .exportButton {
+                width: 50%;
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+
+
+                button {
+                    width: 180px;
+                    height: 40px;
+                    background: white;
+                    color: tomato;
+                    font-size: 18px;
+                    border: none;
+                    border-radius: 15px;
+                    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                    margin: 0px 15px;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-around;
+                    align-items: center;
+
+
+
+                    img {
+                        width: 20px;
+                        height: 20px;
+                        right: 5px;
+                    }
+                }
+
+                button:hover {
+                    cursor: pointer;
+                }
+            }
+
+        }
+
+        .urlPathdiv {
+            width: 100%;
+            height: 50px;
+            background: rgb(238, 238, 238);
+            margin-top: 10px;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+
+            button {
+                width: 30px;
+                height: 30px;
+                background: none;
+                margin: 0 10px;
+                cursor: pointer;
+
+                img {
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+
+            p {
+                min-width: 800px;
+                font-size: 18px;
+                border: 1px inset;
+                padding: 4px 5px;
+            }
+        }
+
+        .rowTwo {
+            width: 100%;
+            min-height: 200px;
+            background: silver;
+            margin: 10px 0 0 0;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            overflow-x: auto;
+
+
+
+            .tableheading {
+                width: 100%;
+                height: 30px;
+                // background: rgb(223, 145, 2);
+                background: rgb(223, 223, 223);
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+
+                span {
+                    width: 50%;
+                    height: inherit;
+                    color: rgb(0, 0, 0);
+                    font-size: 16px;
+                    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                    font-weight: bold;
+                    margin: 0 20px;
+                }
+            }
+
+
+            table {
+                width: 100%;
+                color: white;
+                position: relative;
+
+
+                thead {
+                    background: darkgoldenrod;
+                    text-align: center;
+                    padding: 5px 6px;
+                    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                }
+
+                tbody {
+                    background: rgb(223, 223, 223);
+                    text-align: center;
+
+
+
+                    tr>.tableDataClickable:hover {
+                        cursor: pointer;
+                    }
+
+                    tr>.isFolder {
+                        font-size: 18px;
+                        color: brown;
+                    }
+
+                    tr>td {
+                        font-size: 18px;
+                        padding: 5px 6px;
+                        color: black;
+                        font-weight: bold;
+                    }
+                }
+
+                .message {
+                    width: 50%;
+                    height: 50px;
+                    position: absolute;
+                    top: 160%;
+                    left: 20%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 5px;
+
+                    p {
+                        font-size: 22px;
+                        color: rgb(192, 126, 3);
+                        font-weight: bold;
+
+                    }
+                }
+
+                .loadingData {
+                    width: 50%;
+                    height: 80px;
+                    position: absolute;
+                    top: 150%;
+                    left: 20%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 5px;
+
+                    .errorMsg {
+                        font-size: 20px;
+                        color: rgb(190, 75, 75);
+                        font-weight: bold;
+                    }
+
+
+                    .circle {
+                        width: 50px;
+                        height: 50px;
+                        border-radius: 50%;
+                        border: 5px dashed yellow;
+                        animation: rotateAnim 2s linear infinite;
+                    }
+
+                    @keyframes rotateAnim {
+                        from {
+                            transform: rotate(0deg);
+                        }
+
+                        to {
+                            transform: rotate(360deg);
+                        }
+                    }
+
+                    span {
+                        font-size: 25px;
+                        margin-left: 10px;
+                        color: rgb(26, 146, 2);
+                    }
+                }
+            }
+        }
+    }
+}

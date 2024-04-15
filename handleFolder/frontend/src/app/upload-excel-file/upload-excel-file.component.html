@@ -1,0 +1,41 @@
+<div class="excelcontainer">
+    <div class="excelrow">
+        <div class="excelRowOne">
+            <div class="excelbtndiv">
+                <div class="labelInput">
+                    <label for="excelfileupload">Import Excel File</label>
+                    <input type="file" id="excelfileupload" hidden (change)="handleSelectFile($event)">
+                    <!-- <input id="folderInput" type="file"  (change)="handleSelectFile($event)"  hidden> -->
+                </div>
+                <div class="exportButton">
+                    <button (click)="exportToExcel()">Export To Excel <img src="../../assets/images/pngegg.png" alt="excel.png"></button>
+                </div>
+            </div>
+            <div class="excelDatasDiv">
+                <table id="tableToExport">
+                    <thead>
+                        <tr>
+                            <th *ngFor="let head of headingDatas">{{head}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- <tr *ngFor="let items of uploadedDatas; let i = index" (click)="delteItem(i)"> -->
+                        <tr *ngFor="let items of uploadedDatas; let i = index">
+                            <td *ngFor="let item of items">
+
+                                 <ng-container *ngIf="checkType(item)">
+                                    {{ formateSerialNumberDate(item)}}
+                                </ng-container>
+                                <ng-container *ngIf="!checkType(item)">
+                                    {{item}}
+                                </ng-container>
+                                
+                                
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

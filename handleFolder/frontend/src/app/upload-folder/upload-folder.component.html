@@ -1,0 +1,79 @@
+<div class="container">
+    <div class="row">
+        <div class="rowOne">
+            <div class="inputpathdiv">
+                <label for="">Enter your base folder Path : </label>
+                <div class="inpSapn">
+                    <input type="text" placeholder="enter the base folder path" (change)="handleChange()" [(ngModel)]="inputpath">
+                </div>
+                <button (click)="submitBasePath()">Submit Path</button>
+            </div>
+            <div class="exportButton">
+                <button (click)="exportToExcel()">Export To Excel <img src="../../assets/images/pngegg.png"
+                        alt="excel.png"></button>
+
+            </div>
+        </div>
+        <div class="urlPathdiv" *ngIf="correctBasePath">
+            <button (click)="oneStepBack()" class="stepBack">
+                <img src="/assets/images/backicon.png" alt="backicon.png" class="backImageIcon">
+            </button>
+            <p>
+                {{correctBasePath}}
+            </p>
+        </div>
+        <div class="rowTwo" id="exportTableData">
+            <div class="tableheading">
+                <span>Total Number Of Files : {{numberOfFiles}}</span>
+                <span>Total Number Of Folders : {{numberOfFolders}}</span>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>File/Folder Name</th>
+                        <th>File/Folder Size</th>
+                        <th>FileExtension</th>
+                        <th>File/Folder CreatedDate</th>
+                        <th>File/Folder LastModified</th>
+                        <th>File/Folder Path</th>
+                    </tr>
+                </thead>
+                <div class="message" *ngIf="loadingTemplate; else loadingBlock">
+                    <p>Upload your folder for getting the details of the file and folders</p>
+                </div>
+
+                <ng-template #loadingBlock>
+                    <div class="loadingData" *ngIf="loadingDatas;">
+                        <div class="circle"></div>
+                        <span>Loading...</span>
+                    </div>
+
+                    <tbody *ngIf="notLoadingDatas">
+                        <ng-container *ngIf="UploadedFolders.length > 0">
+                            <tr *ngFor="let folder of UploadedFolders">
+                                <td (click)="addToArrayofSplitedUrl(folder.name)" class="tableDataClickable">{{folder.name}}</td>
+                                <td>{{folder.size}}</td>
+                                <ng-container *ngIf="folder.isDirectory">
+                                    <td class="isFolder">folder</td>
+                                </ng-container>
+                                <ng-container *ngIf="!folder.isDirectory">
+                                    <td>{{folder.extension}}</td>
+                                </ng-container>
+
+
+                                <td>{{folder.createDate}}</td>
+                                <td>{{folder.modifieDate}}</td>
+                                <td>{{folder.fileUrl}}</td>
+                            </tr>
+                        </ng-container>
+                        <ng-container *ngIf="UploadedFolders.length === 0">
+                            <tr>
+                                <td class="noDataFound">Their is no any data found Inside this folder</td>
+                            </tr>
+                        </ng-container>
+                    </tbody>
+                </ng-template>
+            </table>
+        </div>
+    </div>
+</div>
